@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,9 +9,11 @@ namespace CourseManager.Models
 {
     public partial class Classes
     {
+        [Display(Name = "班主任")]
         public string TeacherName
         {
-            get {
+            get
+            {
                 if (!TeacherId.HasValue)
                 {
                     return "";
@@ -23,6 +26,7 @@ namespace CourseManager.Models
                 }
                 return teacher.Name;
             }
+
         }
     }
 }
