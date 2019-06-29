@@ -362,6 +362,7 @@
     <Content Include="Views\SideBar\Create.cshtml" />
     <Content Include="Views\SideBar\Edit.cshtml" />
     <Content Include="Views\SideBar\Delete.cshtml" />
+    <Content Include="Views\Shared\SideBar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

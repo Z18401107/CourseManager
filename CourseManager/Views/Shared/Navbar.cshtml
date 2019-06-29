@@ -1,25 +1,28 @@
-﻿ 
-@using CourseManager.Models
-
+﻿@using CourseManager.Models
+@model IEnumerable<CourseManager.Models.ActionLinks>
 @{
     var site = (WebsiteInfo)ViewBag.Site;
 }
+<style>
+    .title a{
+        line-height:82px; 
+        height:82px;
+    }
+</style>
 <div class="content-wrapper">
-                <div class="float-left">
-                   
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    @Html.ActionLink(WebsiteInfo.SiteName,"Index","Home",new{area=""},new{@class="navbar-brand"})
-                    <nav>
-                        <ul id="menu">
-                            @foreach(var link in site.ActionLinks)
-                            {
-                                <li>@Html.ActionLink(link.Name,link.Action,link.Controller)</li>
-                            }
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+    <div class="col-md-3 float-left title">
+        <div class="site-title">@Html.ActionLink(WebsiteInfo.SiteName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand"})</div>
+    </div>
+    <div class="col-md-9 float-right">
+        <section id="login">
+            @Html.Partial("_LoginPartial")
+        </section>
+        <div class="navbar-collapse collapse">
+            <ul id="menu" class="nav navbar-nav">
+                @foreach (var item in Model) {
+                    <li>@Html.ActionLink(item.Name.Trim(),item.Action.Trim(),item.Controller.Trim())</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
