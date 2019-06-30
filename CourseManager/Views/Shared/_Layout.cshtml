@@ -8,16 +8,23 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
+
     </head>
     <body>
-        @Html.ActionLink("Navbar", "Home")
-        
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
+        <header>
+            @Html.Action("Navbar", "Home")
+        </header>
+        <div class="container body-content">
+            <div class="col-md-3 float-left">
+                @Html.Action("SideBar", "Home")
+            </div>
+            <div class="col-md-9 float-right">
+                @RenderSection("featured", required: false)
                 @RenderBody()
-            </section>
+            </div>
+
         </div>
+        <br />
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
@@ -27,6 +34,7 @@
         </footer>
 
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
     </body>
 </html>

@@ -62,3 +62,4 @@ D:\zaf\CourseManager\CourseManager\obj\Debug\CourseManager.dll
 D:\zaf\CourseManager\CourseManager\obj\Debug\CourseManager.pdb
 D:\zaf\CourseManager\CourseManager\obj\Debug\CourseManager.Migrations.Create20190630.resources
 D:\zaf\CourseManager\CourseManager\obj\Debug\CourseManager.csproj.GenerateResource.Cache
+D:\zaf\CourseManager\CourseManager\obj\Debug\CourseManager.csprojResolveAssemblyReference.cache
