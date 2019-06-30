@@ -10,7 +10,7 @@
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
-        @Html.Partial("Navbar")
+        @Html.ActionLink("Navbar", "Home")
         
         <div id="body">
             @RenderSection("featured", required: false)

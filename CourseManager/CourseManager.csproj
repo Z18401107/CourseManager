@@ -164,25 +164,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ActionLinkController.cs" />
     <Compile Include="Controllers\ClassController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\CourseManagementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginModel.cs" />
+    <Compile Include="Controllers\SideBarController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911270934169_Create201911271111.cs" />
-    <Compile Include="Migrations\201911270934169_Create201911271111.Designer.cs">
-      <DependentUpon>201911270934169_Create201911271111.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912040806492_6788.cs" />
-    <Compile Include="Migrations\201912040806492_6788.Designer.cs">
-      <DependentUpon>201912040806492_6788.cs</DependentUpon>
+    <Compile Include="Migrations\201906300123350_Create20190630.cs" />
+    <Compile Include="Migrations\201906300123350_Create20190630.Designer.cs">
+      <DependentUpon>201906300123350_Create20190630.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\seed\ActionLinkCreator.cs" />
+    <Compile Include="Migrations\seed\SideBarCreator.cs" />
+    <Compile Include="Models\ActionLinks.cs" />
     <Compile Include="Models\Classes.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -194,30 +194,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\CourseManager.Context.cs" />
-    <Compile Include="Models\CourseManager1.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Models\CourseManager1.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Models\ErrorMessage.cs" />
-    <Compile Include="Models\key.cs" />
-    <Compile Include="Models\LinqToSample.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LinqToSample.dbml</DependentUpon>
-    </Compile>
+    <Compile Include="Models\SideBars.cs" />
     <Compile Include="Models\Students.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Teacher.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Models\WebsiteInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -277,25 +261,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="obj\Debug\CourseManager.csprojResolveAssemblyReference.cache" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\CourseManager.csdl" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\CourseManager.msl" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\CourseManager.ssdl" />
-    <Content Include="Models\LinqToSample.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>LinqToSample.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="obj\Debug\CourseManager.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\CourseManager.dll" />
-    <Content Include="obj\Debug\CourseManager.pdb" />
-    <Content Include="obj\Debug\TempPE\Models.CourseManager.cs.dll" />
-    <Content Include="obj\Debug\TempPE\Models.CourseManager.Designer.cs.dll" />
-    <Content Include="obj\Debug\TempPE\Models.CourseManager1.cs.dll" />
-    <Content Include="obj\Debug\TempPE\Models.CourseManager1.Designer.cs.dll" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -369,6 +335,16 @@
     <Content Include="Views\Course\Delete.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\Shared\Navbar.cshtml" />
+    <Content Include="Views\ActionLink\Index.cshtml" />
+    <Content Include="Views\ActionLink\Details.cshtml" />
+    <Content Include="Views\ActionLink\Create.cshtml" />
+    <Content Include="Views\ActionLink\Edit.cshtml" />
+    <Content Include="Views\ActionLink\Delete.cshtml" />
+    <Content Include="Views\SideBar\Index.cshtml" />
+    <Content Include="Views\SideBar\Details.cshtml" />
+    <Content Include="Views\SideBar\Create.cshtml" />
+    <Content Include="Views\SideBar\Edit.cshtml" />
+    <Content Include="Views\SideBar\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -385,15 +361,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911270934169_Create201911271111.resx">
-      <DependentUpon>201911270934169_Create201911271111.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906300123350_Create20190630.resx">
+      <DependentUpon>201906300123350_Create20190630.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912040806492_6788.resx">
-      <DependentUpon>201912040806492_6788.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="Models\LinqToSample.dbml.layout">
-      <DependentUpon>LinqToSample.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

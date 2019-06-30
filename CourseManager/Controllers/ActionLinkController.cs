@@ -9,110 +9,104 @@ using CourseManager.Models;
 
 namespace CourseManager.Controllers
 {
-    public class ClassController : Controller
+    public class ActionLinkController : Controller
     {
         private CourseManagerEntities db = new CourseManagerEntities();
 
         //
-        // GET: /Class/
+        // GET: /ActionLink/
 
         public ActionResult Index()
         {
-            return View(db.Classes.ToList());
+            return View(db.ActionLinks.ToList());
         }
 
         //
-        // GET: /Class/Details/5
+        // GET: /ActionLink/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Classes classes = db.Classes.Find(id);
-            if (classes == null)
+            ActionLinks actionlinks = db.ActionLinks.Find(id);
+            if (actionlinks == null)
             {
                 return HttpNotFound();
             }
-            return View(classes);
+            return View(actionlinks);
         }
 
         //
-        // GET: /Class/Create
+        // GET: /ActionLink/Create
 
         public ActionResult Create()
         {
-            var teachers = db.Teacher.ToList();
-            ViewBag.Teacher = teachers;
-
             return View();
         }
 
         //
-        // POST: /Class/Create
+        // POST: /ActionLink/Create
 
         [HttpPost]
-        public ActionResult Create(Classes classes)
+        public ActionResult Create(ActionLinks actionlinks)
         {
             if (ModelState.IsValid)
             {
-                db.Classes.Add(classes);
+                db.ActionLinks.Add(actionlinks);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(classes);
+            return View(actionlinks);
         }
 
         //
-        // GET: /Class/Edit/5
+        // GET: /ActionLink/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            var teachers = db.Teacher.ToList();
-            ViewBag.Teacher = teachers;
-            Classes classes = db.Classes.Find(id);
-            if (classes == null)
+            ActionLinks actionlinks = db.ActionLinks.Find(id);
+            if (actionlinks == null)
             {
                 return HttpNotFound();
-                
             }
-            return View(classes);
+            return View(actionlinks);
         }
 
         //
-        // POST: /Class/Edit/5
+        // POST: /ActionLink/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Classes classes)
+        public ActionResult Edit(ActionLinks actionlinks)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(classes).State = EntityState.Modified;
+                db.Entry(actionlinks).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(classes);
+            return View(actionlinks);
         }
 
         //
-        // GET: /Class/Delete/5
+        // GET: /ActionLink/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Classes classes = db.Classes.Find(id);
-            if (classes == null)
+            ActionLinks actionlinks = db.ActionLinks.Find(id);
+            if (actionlinks == null)
             {
                 return HttpNotFound();
             }
-            return View(classes);
+            return View(actionlinks);
         }
 
         //
-        // POST: /Class/Delete/5
+        // POST: /ActionLink/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Classes classes = db.Classes.Find(id);
-            db.Classes.Remove(classes);
+            ActionLinks actionlinks = db.ActionLinks.Find(id);
+            db.ActionLinks.Remove(actionlinks);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

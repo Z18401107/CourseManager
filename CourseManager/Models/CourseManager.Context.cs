@@ -13,10 +13,10 @@ namespace CourseManager.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class courseManagerEntities : DbContext
+    public partial class CourseManagerEntities : DbContext
     {
-        public courseManagerEntities()
-            : base("name=courseManagerEntities")
+        public CourseManagerEntities()
+            : base("name=CourseManagerEntities")
         {
         }
     
@@ -29,5 +29,7 @@ namespace CourseManager.Models
         public DbSet<Students> Students { get; set; }
         public DbSet<CourseManagements> CourseManagements { get; set; }
         public DbSet<Course> Course { get; set; }
+        public DbSet<ActionLinks> ActionLinks { get; set; }
+        public DbSet<SideBars> SideBars { get; set; }
     }
 }
